@@ -144,12 +144,24 @@
             }
         }
     };
-    var funcPesqMusica = {
+    var funcPesqYoutube = {
         indexes: ["Pesquise no youtube *","Pesquisar no youtube *","Busque no youtube *","Buscar no youtube *","Pesquisa no youtube *",,"Busca no youtube *"],
         smart:true,
         action: function(i, str){
-			if(i == 0 || i == 1 || i == 2 || i == 3){
+			if(str != ""){
 				var str2 = "https://www.youtube.com/results?search_query=";
+				str2 = str2.concat(str);
+				artyom.say("Pesquisando");
+				window.open(str2,"_blank");
+			}
+        }
+    };
+    var funcPesqYoutube = {
+        indexes: ["Pesquise no google *","Pesquisar no google *","Busque no google *","Buscar no google *","Pesquisa no google *",,"Busca no google *"],
+        smart:true,
+        action: function(i, str){
+			if(str != ""){
+				var str2 = "https://www.google.com.br/search?q=";
 				str2 = str2.concat(str);
 				artyom.say("Pesquisando");
 				window.open(str2,"_blank");
@@ -172,7 +184,7 @@
     artyom.addCommands(funcPiada);
     artyom.addCommands(funcMusica);
     artyom.addCommands(funcPagina);
-    artyom.addCommands(funcPesqMusica);
+    artyom.addCommands(funcPesq);
     //artyom.fatality();
 </script>
 </body>
