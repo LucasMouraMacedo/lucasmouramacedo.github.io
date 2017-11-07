@@ -148,11 +148,13 @@
         indexes: ["Pesquise no youtube *"],
         smart:true,
         action: function(i, str){
-			var str2 = "https://www.youtube.com/results?search_query=";
-			str2 = str2.concat(str);
-			artyom.say("Pesquisando");
-            window.open(str2,"_blank");
-            }
+			if(str != ""){
+				var str2 = "https://www.youtube.com/results?search_query=";
+				str2 = str2.concat(str);
+				artyom.say("Pesquisando");
+				window.open(str2,"_blank");
+			}
+        }
     };
     artyom.redirectRecognizedTextOutput(function(text, EhFinal){
         var spam = document.getElementById("textout");
