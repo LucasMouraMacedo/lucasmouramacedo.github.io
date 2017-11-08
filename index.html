@@ -10,6 +10,9 @@
         .img1{
             margin:0; padding:0; width:60%; height:1300px; 
         }
+        .img2{
+            margin:0; padding:0; width:60%; height:1080px; 
+        }
     </style>
 </head>
 <body>
@@ -18,6 +21,10 @@
 </span>
     <div class="img1">
         <img src="olho.gif"/>
+    </div>
+    <div class="img2">
+        <img src="olho.gif"/>
+    </div>
 <script>
     var artyom = new Artyom();
     var config = {
@@ -32,7 +39,7 @@
         indexes: ["Olá","Bom dia"],
         action: function(i){
             if(i==0){
-                artyom.sayRandom(["Oi","Tudo ok","Estava te esperando Lucas"]);
+                artyom.sayRandom(["Oi","Tudo ok","Estava te esperando Marco"]);
             }else if(i==1){
                 artyom.say("Bom dia!",{
                     onStart:function(){
@@ -50,7 +57,7 @@
         indexes: ["Como é seu nome","Como você se chama", "seu nome", "quem é você"],
         action: function(i){
             if(i==0 || i==1 || i==2 || i==3){
-                artyom.sayRandom(["Eu sou a Josy","As pessoas me chamam de Josy","Bond, Josy Bond"]);
+                artyom.sayRandom(["Eu sou a Samantha","As pessoas me chamam de Samantha","Bond, Samantha Bond"]);
             }else if(i=6){
                 artyom.say("Bom dia!",{
                     onStart:function(){
@@ -68,7 +75,7 @@
         indexes: ["Como você nasceu","como você surgiu", "quem te criou"],
         action: function(i){
             if(i==0 || i==1 || i==2){
-                artyom.say("Se eu t");
+                artyom.say("Eu sou uma das experiências malucas de Marco Alves");
             }else if(i=6){
                 artyom.say("Bom dia!",{
                     onStart:function(){
@@ -109,7 +116,7 @@
         indexes: ["Me conte uma piada"],
         action: function(i){
             if(i==0){
-                artyom.say("Piu,   kkkk");
+                artyom.say("Sabe o que a pedra disse para o peixe? Naadaa kkkk");
             }
         }
     };
@@ -137,7 +144,9 @@
             }
         }
     };
-    var funcPesqYoutube = {
+    
+    
+        var funcPesqYoutube = {
         indexes: ["Pesquise no youtube *","Pesquisar no youtube *","Busque no youtube *","Buscar no youtube *","Pesquisa no youtube *",,"Busca no youtube *"],
         smart:true,
         action: function(i, str){
@@ -149,6 +158,8 @@
 			}
         }
     };
+    
+    
     var funcPesqGoogle = {
         indexes: ["Pesquise no google *","Pesquisar no google *","Busque no google *","Buscar no google *","Pesquisa no google *",,"Busca no google *"],
         smart:true,
@@ -161,6 +172,8 @@
 			}
         }
     };
+    
+    
     artyom.redirectRecognizedTextOutput(function(text, EhFinal){
         var spam = document.getElementById("textout");
         if(EhFinal){
@@ -177,8 +190,6 @@
     artyom.addCommands(funcPiada);
     artyom.addCommands(funcMusica);
     artyom.addCommands(funcPagina);
-    artyom.addCommands(funcPesqYoutube);
-    artyom.addCommands(funcPesqGoogle);
     //artyom.fatality();
 </script>
 </body>
