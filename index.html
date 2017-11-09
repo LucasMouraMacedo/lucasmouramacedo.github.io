@@ -36,12 +36,16 @@
     function funcPensar(){
     	document.getElementById('img1').src='olho1.gif';
     }
+    function funcNormal(){
+    	document.getElementById('img1').src='olho.gif';
+    }
     var funcSaudacao = {
         indexes: ["Olá","Bom dia"],
         action: function(i){
             if(i==0){
                 artyom.sayRandom(["Oi","Tudo ok","Estava te esperando Marco"]);
-		setTimeout(funcPensar,5000);
+		document.getElementById('img1').src='olho1.gif';
+		setTimeout(funcNormal,5000);
             }else if(i==1){
                 artyom.say("Bom dia!",{
                     onStart:function(){
