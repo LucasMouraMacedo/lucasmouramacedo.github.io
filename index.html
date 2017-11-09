@@ -76,18 +76,8 @@
         action: function(i){
             if(i==0 || i==1 || i==2){
                 artyom.say("Eu sou uma das experiências malucas de Marco Alves");
-            }else if(i=6){
-                artyom.say("Bom dia!",{
-                    onStart:function(){
-                        artyom.fatality();
-                        artyom.dontObey();
-                    },
-                    onEnd: function(){
-                        artyom.initialize(config);
-                    }
-                });
-            }
-        }
+	    }
+	 }
     };
     var funcTime = {
         indexes: ["Que horas são"],
@@ -168,11 +158,19 @@
 				var str2 = "https://www.google.com.br/search?q=";
 				str2 = str2.concat(str);
 				artyom.say("Pesquisando");
-				window.open(str2,"_blank");
+				myWindow = window.open(str2,"_blank","width=200, heigth=100");
 			}
         }
     };
-    
+	var funcFecharAba{
+	indexes: ["Fechar Aba *"],
+        smart:true,
+        action: function(i, str){
+			if(str == "google"){
+				myWindow.close();
+			}
+        	}
+	};
     
     artyom.redirectRecognizedTextOutput(function(text, EhFinal){
         var spam = document.getElementById("textout");
@@ -192,6 +190,7 @@
     artyom.addCommands(funcPagina);
     artyom.addCommands(funcPesqYoutube);
     artyom.addCommands(funcPesqGoogle);
+    artyom.addCommands(funcFecharAba);
     //artyom.fatality();
 </script>
 </body>
