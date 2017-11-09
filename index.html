@@ -22,9 +22,6 @@
     <div class="img1">
         <img src="olho.gif"/>
     </div>
-    <div class="img2">
-        <img src="olho.gif"/>
-    </div>
 <script>
     
     var artyom = new Artyom();
@@ -39,6 +36,7 @@
     var funcSaudacao = {
         indexes: ["Olá","Bom dia"],
         action: function(i){
+			document.getElementById('img1').src='olho1.gif';
             if(i==0){
                 artyom.sayRandom(["Oi","Tudo ok","Estava te esperando Marco"]);
             }else if(i==1){
@@ -135,8 +133,6 @@
             }
         }
     };
-    
-    
         var funcPesqYoutube = {
         indexes: ["Pesquise no youtube *","Pesquisar no youtube *","Busque no youtube *","Buscar no youtube *","Pesquisa no youtube *","Busca no youtube *"],
         smart:true,
