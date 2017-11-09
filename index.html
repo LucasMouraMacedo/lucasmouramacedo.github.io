@@ -36,7 +36,7 @@
     var funcSaudacao = {
         indexes: ["Olá","Bom dia"],
         action: function(i){
-			document.getElementById('img1').src='olho1.gif';
+			setTimeout(document.getElementById('img1').src='olho1.gif',5000);
             if(i==0){
                 artyom.sayRandom(["Oi","Tudo ok","Estava te esperando Marco"]);
             }else if(i==1){
@@ -50,7 +50,6 @@
                     }
                 });
             }
-	document.getElementById('img1').src='olho.gif';
         }
     };
      var funcNome = {
