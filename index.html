@@ -33,12 +33,15 @@
         obeyKeyword:'start'
     };
     artyom.initialize(config);
+    function funcPensar(){
+    	document.getElementById('img1').src='olho1.gif';
+    }
     var funcSaudacao = {
         indexes: ["Olá","Bom dia"],
         action: function(i){
-			setTimeout(document.getElementById('img1').src='olho1.gif',5000);
             if(i==0){
                 artyom.sayRandom(["Oi","Tudo ok","Estava te esperando Marco"]);
+		setTimeout(funcPensar,5000);
             }else if(i==1){
                 artyom.say("Bom dia!",{
                     onStart:function(){
