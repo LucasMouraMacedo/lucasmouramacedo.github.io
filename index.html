@@ -163,7 +163,7 @@
 			}
         }
     };
-	/*var funcFecharAba{
+	var funcFecharAba{
 	indexes: ["Fechar Aba *"],
         smart:true,
         action: function(i, str){
@@ -171,7 +171,7 @@
 				myWindow.close();
 			}
         	}
-	};*/
+	};
     
     artyom.redirectRecognizedTextOutput(function(text, EhFinal){
         var spam = document.getElementById("textout");
@@ -191,7 +191,7 @@
     artyom.addCommands(funcPagina);
     artyom.addCommands(funcPesqYoutube);
     artyom.addCommands(funcPesqGoogle);
-   // artyom.addCommands(funcFecharAba);
+    artyom.addCommands(funcFecharAba);
     //artyom.fatality();
 </script>
 </body>
