@@ -173,12 +173,23 @@
         	}
 	};
 	
-     var funcTraduEntoPt = {
-        indexes: ["Traduza * do inglês para o português", "Traduza do inglês para o português *", "Traduza a palavra * do inglês para o português"],
+     var funcTraduEnToPt = {
+        indexes: ["Traduza * do inglês para o português", "Traduza do inglês para o português *", "Traduza a palavra * do inglês para o português", "Traduzir * do inglês para o português", "Traduzir do inglês para o português *", "Traduzir a palavra * do inglês para o português"],
         smart:true,
         action: function(i, str){
 			if(str != ""){
 				var str2 = "https://translate.google.com.br/?hl=pt-BR#en/pt/";
+				str2 = str2.concat(str);
+				window.open(str2,"_blank");
+			}
+        }
+    };
+    var funcTraduPtToEn = {
+        indexes: ["Traduza * do português para o inglês", "Traduza do português para o inglês *", "Traduza a palavra * do português para o inglês", "Traduzir * do português para o inglês", "Traduzir do português para o inglês *", "Traduzir a palavra * do português para o inglês"],
+        smart:true,
+        action: function(i, str){
+			if(str != ""){
+				var str2 = "https://translate.google.com.br/?hl=pt-BR#pt/en/";
 				str2 = str2.concat(str);
 				window.open(str2,"_blank");
 			}
@@ -205,7 +216,8 @@
     artyom.addCommands(funcPesqYoutube);
     artyom.addCommands(funcPesqGoogle);
     artyom.addCommands(funcFecharAba);
-    artyom.addCommands(funcTraduEntoPt);
+    artyom.addCommands(funcTraduEnToPt);
+    artyom.addCommands(funcTraduPtToEn);
     //artyom.fatality();
 </script>
 </body>
