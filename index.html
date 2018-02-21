@@ -3,8 +3,13 @@
     <title>Ass. Vitual</title>
     <script src="artyom.js"></script>
     <script src="artyom.window.js"></script>
+    <style>
+	    body{
+		 color:"white";   
+	    }
+    </style>
 </head>
-<body bgcolor="#FFF" >
+<body bgcolor="#262626" >
 <span id="textout">
 
 </span>
@@ -85,8 +90,8 @@
                 data = new Date();
                 dia = data.getDay();
                 mes = data.getMonth();
-                ano = dateObject.getYear();
-                artyom.say("Hoje é "+dia+" do "+mes+" de "+ano);
+                ano = data.getYear();
+                artyom.say("Hoje é "+dia+" do "+mes+" de "+ano+1900);
             }
         }
     };
