@@ -91,7 +91,10 @@
                 dia = data.getDate();
                 mes = 1 + data.getMonth();
                 ano = data.getFullYear();
-                artyom.say("Hoje é "+dia+" do "+mes+" de "+ano);
+		var dias = new Array(
+			 'domingo','segunda','terça','quarta','quinta','sexta','sábado'
+			);
+                artyom.say("Hoje é "+dias[data.getDate]+", "+dia+" do "+mes+" de "+ano);
             }
         }
     };
