@@ -91,7 +91,8 @@
                 dia = data.getDay();
                 mes = data.getMonth();
                 ano = data.getYear();
-                artyom.say("Hoje é "+dia+" do "+mes+" de "+ano+1900);
+		ano += 1900;
+                artyom.say("Hoje é "+dia+" do "+mes+" de "+ano);
             }
         }
     };
