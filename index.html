@@ -88,10 +88,9 @@
         action: function(i){
             if(i==0 || i==1 || i==2){
                 data = new Date();
-                dia = data.getDay();
-                mes = data.getMonth();
-                ano = data.getYear();
-		ano += 1900;
+                dia = data.getDate();
+                mes = 1 + data.getMonth();
+                ano = data.getFullYear();
                 artyom.say("Hoje é "+dia+" do "+mes+" de "+ano);
             }
         }
