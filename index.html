@@ -11,9 +11,6 @@
     <div class="img1" align="center">
         <img id="img1" src="olho.gif" />
     </div>
-	<div class="img1" align="center">
-        <img id="img2" src="olho1.gif" />
-    </div>
 <script>
     
     var artyom = new Artyom();
@@ -25,19 +22,11 @@
         obeyKeyword:'start'
     };
     artyom.initialize(config);
-    function funcPensar(){
-    	document.getElementById('img1').style.display="none";
-    }
-    function funcNormal(){
-    	document.getElementById('img1').src='olho.gif';
-    }
     var funcSaudacao = {
         indexes: ["Olá","Bom dia"],
         action: function(i){
             if(i==0){
-		document.getElementById('img1').src='olho1.gif';
                 artyom.sayRandom(["Oi","Tudo ok","Estava te esperando Lucas"]);
-		setTimeout(funcNormal,3000);
             }else if(i==1){
                 artyom.say("Bom dia!",{
                     onStart:function(){
@@ -55,7 +44,6 @@
         indexes: ["Como é seu nome","Como você se chama", "seu nome", "quem é você"],
         action: function(i){
             if(i==0 || i==1 || i==2 || i==3){
-		funcPensar();
                 artyom.sayRandom(["Eu sou a ","As pessoas me chamam de Samantha","Bond, Samantha Bond"]);
             }else if(i=6){
                 artyom.say("Bom dia!",{
@@ -97,7 +85,7 @@
                 data = new Date();
                 dia = data.getDay();
                 mes = data.getMonth();
-                ano = data.getYear();
+                ano = dateObject.getYear();
                 artyom.say("Hoje é "+dia+" do "+mes+" de "+ano);
             }
         }
@@ -106,9 +94,9 @@
         indexes: ["Me conte uma piada"],
         action: function(i){
             if(i==0){
-		artyom.sayRandom(["Sabe o que a pedra disse para o peixe? Naadaa rararararara",
-				  "Uma impressora falou pra outra, esse papel é seu ou é impressão minha  rarararararara",
-				  "Qual é O Cúmulo Do Técnico De Informática?  Ferver O HD Tentando Eliminar O Vírus  rararararararara"]);
+		artyom.sayRandom(["Sabe o que a pedra disse para o peixe? Naadaa ra ra ra ra ra ra",
+				  "Uma impressora falou pra outra, esse papel é seu ou é impressão minha  ra ra ra ra ra ra ra",
+				  "Qual é O Cúmulo Do Técnico De Informática?  Ferver O HD Tentando Eliminar O Vírus  ra ra ra ra ra ra ra ra"]);
             }
         }
     };
@@ -204,7 +192,6 @@
         }
     });
 	
-    artyom.addCommands(funcPensar);
     artyom.addCommands(funcSaudacao);
     artyom.addCommands(funcNome);
     artyom.addCommands(funcSurgiu);
