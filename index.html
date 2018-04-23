@@ -1,73 +1,54 @@
 <html>
-<head>
-    <title>Ass. Vitual</title>
-    <script src="artyom.js"></script>
-    <script src="artyom.window.js"></script>
-    <style>
-	    body{
-		 background-color: #262626;   
-	    }
-    </style>
-</head>
-<body>
-<span id="textout">
+	<head>
+		<title>Ass. Vitual</title>
+		<script src="artyom.js"></script>
+		<script src="artyom.window.js"></script>
+		<style>
+			body{
+				background-color: #262626;   
+			}
+		</style>
+	</head>
+	<body>
+		<span id="textout">
+		</span>
+		<div class="img1" align="center">
+			<img id="img1" src="olho.gif" />
+		</div>
 
-</span>
-    <div class="img1" align="center">
-        <img id="img1" src="olho.gif" />
-    </div>
-<script>
-    
-    var artyom = new Artyom();
-    var config = {
-        lang:'pt-BR',
-        continuous: true,
-        debug: false,
-        listen:true,
-        obeyKeyword:'start'
-    };
-    artyom.initialize(config);
-    var funcSaudacao = {
-        indexes: ["Olá","Bom dia"],
-        action: function(i){
-            if(i==0){
-                artyom.sayRandom(["Oi","Tudo ok","Estava te esperando Lucas"]);
-            }else if(i==1){
-                artyom.say("Bom dia!",{
-                    onStart:function(){
-                        artyom.fatality();
-                        artyom.dontObey();
-                    },
-                    onEnd: function(){
-                        artyom.initialize(config);
-                    }
-                });
-            }
-        }
-    };
-     var funcNome = {
-        indexes: ["Como é seu nome","Como você se chama", "seu nome", "quem é você"],
-        action: function(i){
-            if(i==0 || i==1 || i==2 || i==3){
-                artyom.sayRandom(["Eu sou a ","As pessoas me chamam de Samantha","Bond, Samantha Bond"]);
-            }else if(i=6){
-                artyom.say("Bom dia!",{
-                    onStart:function(){
-                        artyom.fatality();
-                        artyom.dontObey();
-                    },
-                    onEnd: function(){
-                        artyom.initialize(config);
-                    }
-                });
-            }
-
-        }
-    };
-     var funcSurgiu = {
-        indexes: ["Como você nasceu","como você surgiu", "quem te criou"],
-        action: function(i){
-            if(i==0 || i==1 || i==2){
+		<script>
+			var artyom = new Artyom();
+			
+			var config = {
+				lang:'pt-BR',
+				continuous: true,
+				debug: false,
+				listen:true,
+				obeyKeyword:'start'
+			};
+			
+			artyom.initialize(config);
+			
+			var funcSaudacao = {
+				indexes: ["Olá","Bom dia"],
+				action: function(){
+					if(i==0){
+						artyom.sayRandom(["Oi","Tudo ok","Estava te esperando, Lucas","Bom dia"]);
+					}
+				}
+			};
+			
+			var funcNome = {
+				indexes: ["Como é seu nome","Como você se chama", "seu nome", "quem é você"],
+				action: function(){
+					artyom.sayRandom(["Eu sou a ","As pessoas me chamam de Samantha","Bond, Samantha Bond"]);
+				}
+			};
+			
+			var funcSurgiu = {
+				indexes: ["Como você nasceu","como você surgiu", "quem te criou"],
+				action: function(i){
+					vbif(i==0 || i==1 || i==2){
                 artyom.say("Eu sou uma das experiências malucas de Lucas");
 	    }
 	 }
@@ -160,17 +141,15 @@
     };
 
     var funcFecharAba = {
-	indexes: ["Fechar Aba *"],
+	indexes: ["Fechar Aba"],
         smart:true,
         action: function(i, str){
-			if(str == "google"){
-				myWindow.close();
-			}
-        	}
+		myWindow.close();
+	}
 	};
 	
      var funcTraduEnToPt = {
-        indexes: ["Traduza * do inglês para o português", "Traduza do inglês para o português *", "Traduza a palavra * do inglês para o português", "Traduzir * do inglês para o português", "Traduzir do inglês para o português *", "Traduzir a palavra * do inglês para o português"],
+        indexes: ["Traduza * para o português", "Traduza para o português *", "Traduza a palavra * para o português", "Traduzir * para o português", "Traduzir para o português *", "Traduzir a palavra * para o português"],
         smart:true,
         action: function(i, str){
 			if(str != ""){
@@ -181,7 +160,7 @@
         }
     };
     var funcTraduPtToEn = {
-        indexes: ["Traduza * do português para o inglês", "Traduza do português para o inglês *", "Traduza a palavra * do português para o inglês", "Traduzir * do português para o inglês", "Traduzir do português para o inglês *", "Traduzir a palavra * do português para o inglês"],
+        indexes: ["Traduza * para o inglês", "Traduza para o inglês *", "Traduza a palavra * para o inglês", "Traduzir * para o inglês", "Traduzir para o inglês *", "Traduzir a palavra * para o inglês"],
         smart:true,
         action: function(i, str){
 			if(str != ""){
@@ -191,6 +170,19 @@
 			}
         }
     };
+	
+     var funcCalculadora = {
+        indexes: ["Cacularora", "Ativar calculadora"],
+        smart:true,
+        action: function(i, str){
+			if(str != ""){
+				var str2 = "https://translate.google.com.br/?hl=pt-BR#pt/en/";
+				str2 = str2.concat(str);
+				window.open(str2,"_blank");
+			}
+        }
+    };
+    
     artyom.redirectRecognizedTextOutput(function(text, EhFinal){
         var spam = document.getElementById("textout");
         if(EhFinal){
