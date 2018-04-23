@@ -33,7 +33,7 @@
 				indexes: ["Olá","Bom dia"],
 				action: function(){
 					if(i==0){
-						artyom.sayRandom(["Oi","Tudo ok","Estava te esperando, Lucas","Bom dia"]);
+						artyom.sayRandom(["Oi","Tudo ok","Estava te esperando","Bom dia"]);
 					}
 				}
 			};
@@ -41,65 +41,70 @@
 			var funcNome = {
 				indexes: ["Como é seu nome","Como você se chama", "seu nome", "quem é você"],
 				action: function(){
-					artyom.sayRandom(["Eu sou a ","As pessoas me chamam de Samantha","Bond, Samantha Bond"]);
+					artyom.sayRandom(["Eu sou a Suria","As pessoas me chamam de Suria"]);
 				}
 			};
 			
 			var funcSurgiu = {
 				indexes: ["Como você nasceu","como você surgiu", "quem te criou"],
 				action: function(i){
-					vbif(i==0 || i==1 || i==2){
-                artyom.say("Eu sou uma das experiências malucas de Lucas");
-	    }
-	 }
-    };
-    var funcTime = {
-        indexes: ["Que horas são"],
-        action: function(i){
-            if(i==0){
-                data = new Date();
-                horas = data.getHours();
-                minutos = data.getMinutes();
-                artyom.say("São "+horas+" horas e "+minutos+"minutos");
-            }
-        }
-    };
-    var funcDate = {
-        indexes: ["Que dia é hoje", "A data atual","Me diga que dia é hoje"],
-        action: function(i){
-            if(i==0 || i==1 || i==2){
-                data = new Date();
-                dia = data.getDate();
-                mes = 1 + data.getMonth();
-                ano = data.getFullYear();
-		var dias = new Array(
-			 'domingo','segunda feira','terça feira','quarta feira','quinta feira','sexta feira','sábado'
-			);
-                artyom.say("Hoje é "+dias[data.getDay()]+", "+dia+" do "+mes+" de "+ano);
-            }
-        }
-    };
-    var funcPiada = {
-        indexes: ["Me conte uma piada"],
-        action: function(i){
-            if(i==0){
-		artyom.sayRandom(["Sabe o que a pedra disse para o peixe? Naadaa ra ra ra ra ra ra",
-				  "Uma impressora falou pra outra, esse papel é seu ou é impressão minha  ra ra ra ra ra ra ra",
-				  "Qual é O Cúmulo Do Técnico De Informática?  Ferver O HD Tentando Eliminar O Vírus  ra ra ra ra ra ra ra ra"]);
-            }
-        }
-    };
-    var funcMusica = {
-        indexes: ["Toque uma música internacional","Toque uma música nacional"],
-        action: function(i){
-            artyom.say("Vou tocar a sua preferida!");
-            if(i==0){
-                window.open("https://www.youtube.com/watch?v=1w7OgIMMRc4","_blank");
-            }else{
-                 window.open("https://www.youtube.com/watch?v=fJqXCFJ_doM","_blank");
-            }
-        }
-    };
+					if(i==0 || i==1 || i==2){
+						artyom.say("Meu criador é muito curioso");
+					}else if(i==2){
+						artyom.say("Acho que neste momento, você ja sabe");
+					}
+					
+				}
+			};
+			var funcTime = {
+				indexes: ["Que horas são"],
+				action: function(i){
+					if(i==0){
+						data = new Date();
+						horas = data.getHours();
+						minutos = data.getMinutes();
+						artyom.say("São "+horas+" horas e "+minutos+"minutos");
+					}
+				}
+			};
+			var funcDate = {
+				indexes: ["Que dia é hoje", "A data atual","Me diga que dia é hoje"],
+				action: function(i){
+					if(i==0 || i==1 || i==2){
+						var data = new Date();
+						var dia = data.getDate();
+						var mes = 1 + data.getMonth();
+						var ano = data.getFullYear();
+						var dias = new Array(
+							'domingo','segunda feira','terça feira','quarta feira','quinta feira','sexta feira','sábado'
+						);
+						artyom.say("Hoje é "+dias[data.getDay()]+", "+dia+" do "+mes+" de "+ano);
+					}
+				}
+			};
+			
+			var funcPiada = {
+				indexes: ["Me conte uma piada"],
+				action: function(i){
+					if(i==0){
+						artyom.sayRandom(["Sabe o que a pedra disse para o peixe? Naadaa ra ra ra ra ra ra",
+								  "Uma impressora falou pra outra, esse papel é seu ou é impressão minha  ra ra ra ra ra ra ra",
+								  "Qual é O Cúmulo Do Técnico De Informática?  Ferver O HD Tentando Eliminar O Vírus  ra ra ra ra ra ra ra ra"]);
+					}
+				}
+			};
+			
+			var funcMusica = {
+				indexes: ["Toque uma música internacional","Toque uma música nacional"],
+				action: function(i){
+					artyom.say("Vou tocar a sua preferida!");
+					if(i==0){
+						window.open("https://www.youtube.com/watch?v=1w7OgIMMRc4","_blank");
+					}else{
+						window.open("https://www.youtube.com/watch?v=fJqXCFJ_doM","_blank");
+					}
+				}
+			};
     var funcPagina = {
         indexes: ["Abra meu *"],
         smart:true,
