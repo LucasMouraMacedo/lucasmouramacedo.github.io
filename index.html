@@ -180,7 +180,7 @@
 				}
 			};
 
-			var funcCalculadora = {
+			/*var funcCalculadora = {
 				indexes: ["Caculadora", "Ativar calculadora"],
 				action: function(){
 					artyom.say('Qual operação deseja fazer?');
@@ -197,7 +197,7 @@
 							}
 					}
 				}
-			};
+			};*/
 			
 			artyom.redirectRecognizedTextOutput(function(text, EhFinal){
 				var spam = document.getElementById("textout");
@@ -221,7 +221,7 @@
 			artyom.addCommands(funcFecharAba);
 			artyom.addCommands(funcTraduEnToPt);
 			artyom.addCommands(funcTraduPtToEn);
-			artyom.addCommands(funcCalculadora);
+			//artyom.addCommands(funcCalculadora);
 			//artyom.fatality();
 		</script>
 	</body>
