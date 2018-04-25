@@ -105,112 +105,124 @@
 					}
 				}
 			};
-    var funcPagina = {
-        indexes: ["Abra meu *"],
-        smart:true,
-        action: function(i, str){
-            if((str=="facebook") || (str=="Facebook")){
-                artyom.say("Abrir Facebook");
-                window.open("https://www.facebook.com","_blank");
-            }else if((str=="gmail") || (str=="Gmail")){
-                artyom.say("Abrir Gmail");
-                window.open("https://www.google.com/gmail/","_blank");
-            }
-        }
-    };
-        var funcPesqYoutube = {
-        indexes: ["Pesquise no youtube *","Pesquisar no youtube *","Busque no youtube *","Buscar no youtube *","Pesquisa no youtube *","Busca no youtube *"],
-        smart:true,
-        action: function(i, str){
-			if(str != ""){
-				var str2 = "https://www.youtube.com/results?search_query=";
-				str2 = str2.concat(str);
-				artyom.say("Pesquisando");
-				window.open(str2,"_blank");
-			}
-        }
-    };
-    
-    var myWindow;
-    var funcPesqGoogle = {
-        indexes: ["Pesquise no google *","Pesquisar no google *","Busque no google *","Buscar no google *","Pesquisa no google *","Busca no google *"],
-        smart:true,
-        action: function(i, str){
-			if(str != ""){
-				var str2 = "https://www.google.com.br/search?q=";
-				str2 = str2.concat(str);
-				artyom.say("Pesquisando");
-				myWindow = window.open(str2,"_blank");
-			}
-        }
-    };
+			
+			var funcPagina = {
+				indexes: ["Abra meu *"],
+				smart:true,
+				action: function(i, str){
+					if((str=="facebook") || (str=="Facebook")){
+						artyom.say("Abrir Facebook");
+						window.open("https://www.facebook.com","_blank");
+					}else if((str=="gmail") || (str=="Gmail")){
+						artyom.say("Abrir Gmail");
+						window.open("https://www.google.com/gmail/","_blank");
+					}
+				}
+			};
+			
+			var funcPesqYoutube = {
+				indexes: ["Pesquise no youtube *","Pesquisar no youtube *","Busque no youtube *","Buscar no youtube *","Pesquisa no youtube *","Busca no youtube *"],
+				smart:true,
+				action: function(i, str){
+					if(str != ""){
+						var str2 = "https://www.youtube.com/results?search_query=";
+						str2 = str2.concat(str);
+						artyom.say("Pesquisando");
+						window.open(str2,"_blank");
+					}
+				}
+			};
+			
+			var myWindow;
+			
+			var funcPesqGoogle = {
+				indexes: ["Pesquise no google *","Pesquisar no google *","Busque no google *","Buscar no google *","Pesquisa no google *","Busca no google *"],
+				smart:true,
+				action: function(i, str){
+					if(str != ""){
+						var str2 = "https://www.google.com.br/search?q=";
+						str2 = str2.concat(str);
+						artyom.say("Pesquisando");
+						myWindow = window.open(str2,"_blank");
+					}
+				}
+			};
+			
+			var funcFecharAba = {
+				indexes: ["Fechar Aba"],
+				smart:true,
+				action: function(i, str){
+					myWindow.close();
+				}
+			};
+			
+			var funcTraduEnToPt = {
+				indexes: ["Traduza * para o português", "Traduza para o português *", "Traduza a palavra * para o português", "Traduzir * para o português", "Traduzir para o português *", "Traduzir a palavra * para o português"],
+				smart:true,
+				action: function(i, str){
+					if(str != ""){
+						var str2 = "https://translate.google.com.br/?hl=pt-BR#en/pt/";
+						str2 = str2.concat(str);
+						window.open(str2,"_blank");
+					}
+				}
+			};
+			
+			var funcTraduPtToEn = {
+				indexes: ["Traduza * para o inglês", "Traduza para o inglês *", "Traduza a palavra * para o inglês", "Traduzir * para o inglês", "Traduzir para o inglês *", "Traduzir a palavra * para o inglês"],
+				smart:true,
+				action: function(i, str){
+					if(str != ""){
+						var str2 = "https://translate.google.com.br/?hl=pt-BR#pt/en/";
+						str2 = str2.concat(str);
+						window.open(str2,"_blank");
+					}
+				}
+			};
 
-    var funcFecharAba = {
-	indexes: ["Fechar Aba"],
-        smart:true,
-        action: function(i, str){
-		myWindow.close();
-	}
-	};
-	
-     var funcTraduEnToPt = {
-        indexes: ["Traduza * para o português", "Traduza para o português *", "Traduza a palavra * para o português", "Traduzir * para o português", "Traduzir para o português *", "Traduzir a palavra * para o português"],
-        smart:true,
-        action: function(i, str){
-			if(str != ""){
-				var str2 = "https://translate.google.com.br/?hl=pt-BR#en/pt/";
-				str2 = str2.concat(str);
-				window.open(str2,"_blank");
-			}
-        }
-    };
-    var funcTraduPtToEn = {
-        indexes: ["Traduza * para o inglês", "Traduza para o inglês *", "Traduza a palavra * para o inglês", "Traduzir * para o inglês", "Traduzir para o inglês *", "Traduzir a palavra * para o inglês"],
-        smart:true,
-        action: function(i, str){
-			if(str != ""){
-				var str2 = "https://translate.google.com.br/?hl=pt-BR#pt/en/";
-				str2 = str2.concat(str);
-				window.open(str2,"_blank");
-			}
-        }
-    };
-	
-     var funcCalculadora = {
-        indexes: ["Cacularora", "Ativar calculadora"],
-        smart:true,
-        action: function(i, str){
-			if(str != ""){
-				var str2 = "https://translate.google.com.br/?hl=pt-BR#pt/en/";
-				str2 = str2.concat(str);
-				window.open(str2,"_blank");
-			}
-        }
-    };
-    
-    artyom.redirectRecognizedTextOutput(function(text, EhFinal){
-        var spam = document.getElementById("textout");
-        if(EhFinal){
-            spam.innerHTML = text;
-        }else{
-            spam.innerHTML = spam.innerHTML+'.';
-        }
-    });
-	
-    artyom.addCommands(funcSaudacao);
-    artyom.addCommands(funcNome);
-    artyom.addCommands(funcSurgiu);
-    artyom.addCommands(funcTime);
-    artyom.addCommands(funcDate);
-    artyom.addCommands(funcPiada);
-    artyom.addCommands(funcMusica);
-    artyom.addCommands(funcPagina);
-    artyom.addCommands(funcPesqYoutube);
-    artyom.addCommands(funcPesqGoogle);
-    artyom.addCommands(funcFecharAba);
-    artyom.addCommands(funcTraduEnToPt);
-    artyom.addCommands(funcTraduPtToEn);
-    //artyom.fatality();
-</script>
-</body>
+			var funcCalculadora = {
+				indexes: ["Cacularora", "Ativar calculadora"],
+				action: function(){
+					artyom.say('Qual operação deseja fazer?');
+					indexes: ["*"],
+						action: function(str){
+							if(str =="adição"){
+								artyom.say('Você escolheu adição');
+							}else if(str =="subtração"){
+								artyom.say('Você escolheu subtração');
+							}else if(str =="multiplicação"){
+								artyom.say('Você escolheu multiplicação');
+							}else{
+								artyom.say('Você escolheu divisão');
+							}
+					}
+				}
+			};
+			
+			artyom.redirectRecognizedTextOutput(function(text, EhFinal){
+				var spam = document.getElementById("textout");
+				if(EhFinal){
+					spam.innerHTML = text;
+				}else{
+					spam.innerHTML = spam.innerHTML+'.';
+				}
+			});
+			
+			artyom.addCommands(funcSaudacao);
+			artyom.addCommands(funcNome);
+			artyom.addCommands(funcSurgiu);
+			artyom.addCommands(funcTime);
+			artyom.addCommands(funcDate);
+			artyom.addCommands(funcPiada);
+			artyom.addCommands(funcMusica);
+			artyom.addCommands(funcPagina);
+			artyom.addCommands(funcPesqYoutube);
+			artyom.addCommands(funcPesqGoogle);
+			artyom.addCommands(funcFecharAba);
+			artyom.addCommands(funcTraduEnToPt);
+			artyom.addCommands(funcTraduPtToEn);
+			artyom.addCommands(funcCalculadora);
+			//artyom.fatality();
+		</script>
+	</body>
 </html>
