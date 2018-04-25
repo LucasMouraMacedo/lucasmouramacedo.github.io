@@ -149,10 +149,12 @@
 			};
 			
 			var funcFecharAba = {
-				indexes: ["Fechar Aba"],
+				indexes: ["Fechar Aba *"],
 				smart:true,
 				action: function(i, str){
-					myWindow.close();
+					if(str == "google"){
+						myWindow.close();
+					}
 				}
 			};
 			
