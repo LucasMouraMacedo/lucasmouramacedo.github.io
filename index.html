@@ -31,9 +31,9 @@
 			
 			var funcSaudacao = {
 				indexes: ["Olá","Bom dia"],
-				action: function(){
+				action: function(i){
 					if(i==0){
-						artyom.sayRandom(["Oi","Tudo ok","Estava te esperando","Bom dia"]);
+						artyom.sayRandom(["Oi","Tudo ok?","Estava te esperando","Bom dia"]);
 					}
 				}
 			};
@@ -181,7 +181,7 @@
 			};
 
 			var funcCalculadora = {
-				indexes: ["Cacularora", "Ativar calculadora"],
+				indexes: ["Caculadora", "Ativar calculadora"],
 				action: function(){
 					artyom.say('Qual operação deseja fazer?');
 					indexes: ["*"],
