@@ -199,6 +199,23 @@
 				}
 			};*/
 			
+			var funcNoticias = {
+				indexes: ["Notícias sobre *","Pesquise notícias sobre *"],
+				smart:true,
+				action: function(i, str){
+					if(str != ""){
+						var str2 = "https://news.google.com/news/u/0/search/section/q/";
+						str2 = str2.concat(str);
+						var str3 = "/";
+						str2 = str2.concat(str3);
+						str2 = str2.concat(str);
+						var str3 = "?hl=pt-BR&gl=BR&ned=pt-br_br";
+						str2 = str2.concat(str3);
+						window.open(str2,"_blank");
+					}
+				}
+			};
+			
 			artyom.redirectRecognizedTextOutput(function(text, EhFinal){
 				var spam = document.getElementById("textout");
 				if(EhFinal){
@@ -221,6 +238,7 @@
 			artyom.addCommands(funcFecharAba);
 			artyom.addCommands(funcTraduEnToPt);
 			artyom.addCommands(funcTraduPtToEn);
+			artyom.addCommands(funcNoticias);
 			//artyom.addCommands(funcCalculadora);
 			//artyom.fatality();
 		</script>
